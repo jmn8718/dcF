@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <hr>
+    <form method="get" action="/ramlOperations">
+      <label for="raml" required>RAML</label>
+      <input type="text" name="raml">
+      <label for="console">Console</label>
+      <input type="text" name="console">
+      <label for="documentation">Documentation</label>
+      <input type="text" name="documentation">
+      <label for="template">Template</label>
+      <select name="template">
+        <option value="default">raml2html</option>
+        <option value="api_market">API_Market</option>
+        <option value="security">Security</option>
+      </select>
+      <button type="submit">PARSE</button>
+    </form>
+  </body>
+</html>
