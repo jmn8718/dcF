@@ -10821,7 +10821,10 @@ span.raml-console-side-bar-required-field {
   text-overflow: ellipsis;
   width: 200px;
   display: block;
-  white-space: nowrap
+  white-space: nowrap;
+
+
+  width: 400px;
 }
 
 div.tooltip-inner {
@@ -17979,7 +17982,11 @@ body.modal-open {
   background-color: white;
   margin-top: 182px;
   font-family: "BBVAWebBook-Regular",Helvetica,Arial,sans-serif;
-  z-index: 2
+  z-index: 2;
+
+
+
+  width: 500px;
 }
 
 .api-documentation #sidebar.sidebar-api_security .nav__title {

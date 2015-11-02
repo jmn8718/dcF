@@ -4,6 +4,22 @@ var router = express.Router();
 var raml = require('raml-parser');
 var raml2html = require('raml2html');
 var url = require('url');
+var fs = require('fs');
+
+function toFile(file, content){
+  if(fs.existsSync(file)){
+    fs.unlinkSync(file);
+    console.log('deleted file: ',file);
+  } else {
+    console.log('file dont exist: ',file);
+  }
+  fs.writeFile(file, content, function(err) {
+    if(err)
+      console.error("Error", err);
+    else
+      console.log("output file", file, "was created!");
+  });
+}
 
 function sendError(res, errorCode){
   var data = {};
@@ -23,6 +39,29 @@ function sendError(res, errorCode){
       description: 'Unexpected error'
     }
   res.send(data);
+}
+
+function generateAnchor(base, element){
+  return base + "_" +element.replace("/","");
+}
+function generateIndex(data){
+  index = {};
+
+  console.log('..........')
+  for(var resourceL1 in data['resources']){
+    console.log(data['resources'][resourceL1])
+    console.log('+++++++')
+    if(data['resources'][resourceL1].methods!=undefined){
+      console.log(data['resources'][resourceL1].methods)
+      for(var method in data['resources'][resourceL1].methods)
+        console.log('---------------------',data['resources'][resourceL1].methods[method].method)
+    }else
+      console.log('no tengo naaa')
+    console.log('XXXXX')
+  }
+  console.log('+++++++')
+
+  return index;
 }
 /* GET ramlOperations listing. */
 router.get('/', function(req, res, next) {
@@ -49,6 +88,10 @@ router.get('/', function(req, res, next) {
       //console.log(config);
 
       console.log(data)
+      console.log('---')
+      console.log(data.resources[0].resources)
+      console.log('-***--')
+      console.log(generateIndex(data))
       data.console_link = uriParts.query.console;
       data.overview_link = uriParts.query.documentation;
       data.get_api_link = uriParts.query.get_api;
