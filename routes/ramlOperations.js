@@ -46,7 +46,12 @@ router.get('/', function(req, res, next) {
       else
         config = raml2html.getDefaultConfig();
 
-      console.log(config);
+      //console.log(config);
+
+      console.log(data)
+      data.console_link = uriParts.query.console;
+      data.overview_link = uriParts.query.documentation;
+      data.get_api_link = uriParts.query.get_api;
 
       raml2html.render(data, config).then(function(result){
         console.log("success");
