@@ -2,26 +2,41 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <hr>
-    <form method="get" action="/ramlOperations">
-      <label for="raml" required>RAML</label>
-      <input type="text" name="raml">
-      <label for="console">Console</label>
-      <input type="text" name="console">
-      <label for="documentation">Documentation</label>
-      <input type="text" name="documentation">
-      <label for="template">Template</label>
-      <select name="template">
-        <option value="default">raml2html</option>
-        <option value="api_market">API_Market</option>
-        <option value="security">Security</option>
-      </select>
-      <button type="submit">PARSE</button>
+    <form method="get" action="/ramlOperations/api_market">
+      <div class="form-group">
+        <label for="raml" class="control-label" >RAML</label>
+        <input type="text" name="raml" class="form-control" required frequi>
+      </div>
+      <div class="form-group">
+        <label for="console" class="control-label" >Console</label>
+        <input type="text" name="console" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label for="documentation" class="control-label" >Documentation</label>
+        <input type="text" name="documentation" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label for="template" class="control-label" >Template</label>
+        <select name="template" class="form-control">
+          <option value="api_market" selected>API_Market</option>
+          <option value="api_market_full">API_Market Full</option>
+          <option value="security">Security</option>
+        </select>
+      </div>
+      <div class="text-center">
+        <button type="submit"  class="btn btn-default">PARSE</button>
+      </div>
     </form>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   </body>
 </html>

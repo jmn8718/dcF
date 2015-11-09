@@ -1,0 +1,980 @@
+<div id="header">
+                                        <div class="size-controls">
+                                            <ul class="size-controls__options">
+                                                <li class="size-controls__option"><a class="size-controls__option--overview size-controls__option--resize" data-action="overview" href="PUT_API_NAME_WITH_-_INSTEAD_OF_SPACES">Overview</a></li>
+                                                <li class="size-controls__option"><a class="size-controls__option--overview size-controls__option--console" data-action="switch-to-console" href="">Switch to console</a></li>
+                                                <li><span class="resizer"><i class="resizer__arrow"></i></span></li>
+                                            </ul>
+                                            <div class="language-controls__options" data-element="language-selector">
+                                                <span class="language-controls__help">SELECT THE PROGRAMING LANGUAGE</span>
+                                                <ul class="language-controls__list" data-list="language-list">
+                                                    <li class="language-controls--selected language-controls__item"><span class="language-controls--selected--text">JAVA</span>
+                                                        <ul class="language-control__items">
+                                                            <li class="language-controls__item" data-item="language-curl">CURL</li>
+                                                            <li class="language-controls__item item-selected" data-item="language-java">JAVA</li>
+                                                            <li class="language-controls__item" data-item="language-python">PYTHON</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="sidebar">
+                                        <div id="nav-anchor">&nbsp;</div>
+                                        <h1 class="nav__title"><a data-link="get-api" href="/group/api_market/get-api?api=">Get API</a></h1>
+                                        <div class="nav-wrapper-scroll">
+                                            <nav class="nav">
+                                                <ul class="nav__list" data-list="documentation-index">
+                                                     <li class="nav__list__item"><a class="nav__list__link nav__list__link--active" href="#api-information">API Information</a>
+	<ul class="nav__list nav__list--sub-list">
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-description">Description</a>
+		</li>
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-version-history">Version history</a>
+		</li>
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-authentication">Authentication</a>
+		</li>
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-scopes">Scopes</a>
+		</li>
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-pagination-model">Pagination model</a>
+		</li>
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-sandbox">Sandbox</a>
+		</li>
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-terms--conditions">Terms &amp; Conditions</a>
+		</li>
+		<li class="nav__list__item">
+			<a class="nav__list__link" href="#description-related-resources">Related resources</a>
+		</li>
+	</ul>
+</li> 
+                                                     <li class="nav__list__item"><a class="nav__list__link" href="#me">me</a>
+	<ul class="nav__list nav__list--sub-list">
+		<li class="nav__list__item">
+			<span class="nav__list__icon">
+				<strong class="api__documentation__http api__documentation__http--get">
+					get</strong>
+			</span>
+			<a class="nav__list__link" href="#me-get">/me</a>
+		</li>
+	</ul>
+</li> 
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div id="api-doc">
+                                        <section class="api-doc__section">
+                                            <article>
+                                                <section class="api__documentation" id="api-information">
+                                                    <h1 class="api__documentation__title">API Infomation</h1>
+                                                    <div class="api__documentation__parameters">
+                                                        <div class="col--first">
+                                                            <span class="parameters__parameter">Title: </span>
+                                                        </div>
+                                                        <div class="col--second">
+                                                            <span class="parameters__description">User identity services</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="api__documentation__parameters">
+                                                        <div class="col--first">
+                                                            <span class="parameters__parameter">Version: </span>
+                                                        </div>
+                                                        <div class="col--second">
+                                                            <span class="parameters__description">v1</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="api__documentation__parameters">
+                                                        <div class="col--first">
+                                                            <span class="parameters__parameter">Protocols: </span>
+                                                        </div>
+                                                        <div class="col--second">
+                                                            <span class="parameters__description">HTTPS</span>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="api__example api__example--place-holder">
+                                                    <p class="place-holder place-holder--title">example screen</p>
+                                                    <p class="place-holder place-holder--text">No examples are available on this section</p>
+                                                    <p class="place-holder place-holder--text">Navigate to any service to show its associated examples</p>
+                                                </section>
+                                            </article>
+                                             <article>
+    <section class="api__documentation" id="description-description">
+        <h1 class="api__documentation__title">Description</h1>
+        <p class="api__documentation__text">
+             <p>The identity API allows third party applications to retrieve profile information about a given BBVA user, including the following:</p>
+<ul>
+<li>Unique identifier for the user</li>
+<li>Personal information<ul>
+<li>Name</li>
+<li>Surnames</li>
+</ul>
+</li>
+<li>Contact information<ul>
+<li>Email</li>
+<li>Mobile phone</li>
+<li>Address</li>
+</ul>
+</li>
+</ul>
+<p>This API is available in the following environments:</p>
+<ul>
+<li>Sandbox (see section below).</li>
+<li>Live (production)</li>
+</ul>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="description-version-history">
+        <h1 class="api__documentation__title">Version history</h1>
+        <p class="api__documentation__text">
+             <p>Below are the version history for this API:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Current version</strong></td>
+<td>v1 (November, 2015)</td>
+</tr>
+<tr>
+<td><strong>Previous available versions</strong></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="description-authentication">
+        <h1 class="api__documentation__title">Authentication</h1>
+        <p class="api__documentation__text">
+             <p>This API is protected by a 3-legged Open Authentication (OAuth) protocol, so as the result of the negotiation a valid OAuth token is obtained for accessing the different services on behalf of a BBVA user.</p>
+<p>Please, check the following Authentication documentation links:</p>
+<ul>
+<li><a class="api__documentation-link" href="#TODO_link_here">3 legged OAuth authentication protocol documentation</a></li>
+</ul>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="description-scopes">
+        <h1 class="api__documentation__title">Scopes</h1>
+        <p class="api__documentation__text">
+             <p>The responses for this API are accordingly filtered depending on the granted scopes for the calling application. These scopes are specified when the application is registered in BBVA API Market.</p>
+<p>Below are the available scopes for this API and the fields that they allow to retrieve:</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Mode</th>
+<th>Filtered fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User profile</td>
+<td>Basic</td>
+<td>address, email, phone</td>
+</tr>
+<tr>
+<td></td>
+<td>Full</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="description-pagination-model">
+        <h1 class="api__documentation__title">Pagination model</h1>
+        <p class="api__documentation__text">
+             <p>Pagination is not available on this API.</p>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="description-sandbox">
+        <h1 class="api__documentation__title">Sandbox</h1>
+        <p class="api__documentation__text">
+             <p>This API is included in a Sandbox environment to test your applications before accessing to live data.</p>
+<p>A set of non-real users are created by default for each of your applications (see the table below). </p>
+<h2 id="data-set-management">Data set management</h2>
+<p>Data set administration is only available via REST services at the moment, including 3 endpoints:</p>
+<ul>
+<li>Data set restoration, <strong>deletes</strong> all data for the application and reload the default data set</li>
+<li>List application permissions, granted by the users</li>
+<li>Application permissions revocation, <strong>revokes all</strong> permissions granted by all users to the application</li>
+</ul>
+<h2 id="related-resources">Related resources</h2>
+<ul>
+<li><a class="api__documentation-link" href="#TODO_link_here">Sandbox services documentation</a></li>
+</ul>
+<h2 id="sandbox-available-users">Sandbox available users</h2>
+<table>
+<thead>
+<tr>
+<th>User identifier</th>
+<th>User password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>050461445C</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>005745476F</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>040628930M</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>064789352P</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>020120708D</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>056909291T</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>049315809Z</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>009929746W</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>072458025K</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>008033587D</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>012345677J</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>050865368V</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>1075592584W</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>006291718E</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>029158696D</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>008906932K</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>008453435S</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>005539848E</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>066472433H</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>005947759M</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>076575274V</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>000001025J</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>000007839L</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>000006939Q</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>090247804J</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>016038978C</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>000001980W</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>Y9849764M</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>000000002W</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>X5665631H</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>012345619R</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>019609283N</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>062956421Q</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>032036859K</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>078000000P</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>046757760W</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>000001000B</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>000000034B</td>
+<td>123456</td>
+</tr>
+</tbody>
+</table>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="description-terms--conditions">
+        <h1 class="api__documentation__title">Terms &amp; Conditions</h1>
+        <p class="api__documentation__text">
+             <ul>
+<li><a class="api__documentation-link" href="#TODO_link_here">BBVA API&#39;s terms &amp; conditions</a></li>
+</ul>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="description-related-resources">
+        <h1 class="api__documentation__title">Related resources</h1>
+        <p class="api__documentation__text">
+             <ul>
+<li><a class="api__documentation-link" href="#TODO_link_here">Sandbox live demo application</a></li>
+<li><a class="api__documentation-link" href="#TODO_link_here">BBVA API Market</a></li>
+<li><a class="api__documentation-link" href="#TODO_link_here">Github project</a>  </li>
+</ul>
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article> 
+                                             <article>
+    <section class="api__documentation" id="me">
+        <h1 class="api__documentation__title">me</h1>
+        <p class="api__documentation__text">
+        </p>
+    </section>
+    <section class="api__example api__example--place-holder">
+    </section>
+</article><article>
+    <section class="api__documentation" id="me-get">
+        <article>
+            <div class="api__documentation__subtitle">
+                <h3 class="api__documentation__title">/me</h3>
+                <span class="api__documentation__icon"><strong
+                        class="api__documentation__http api__documentation__http--get">get</strong> </span>
+                <p class="api__documentation__text">Returns information associated to the user implicitly binded to attached oauth token.
+<strong>Query string filters</strong>: None
+<strong>Pagination</strong>: None
+</p>
+            </div>
+        </article>
+        <article id="me-get__headers">
+            <div class="api__documentation__subtitle">
+                <h4 class="api__documentation__section-name">Headers</h4>
+            </div>
+            <div class="api__documentation__parameters">
+                <div class="col--first"><span class="parameters__parameter">Authorization</span> <span
+                        class="parameters__default">required <label class="parameters__type">(string)</label></span>
+                </div>
+                <div class="col--second"><span
+                        class="parameters__description"> Tsec Authorization Header. Used to send a valid TSec Access Token.
+ </span><span
+                        class="paramters__example"> <strong>Example: </strong>Authorization: Tsec eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy
+</span>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="api__example">
+        <h1 class="example__title">/me</h1>
+        <h2 class="example__subtitle--call-code">EXAMPLE</h2>
+        <div class="example__call-code">
+            <div class="example__code-container language-java">
+                <pre class="prettyprint">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
+public class APIRestExample 
+{
+	public static void main(String[] args) throws Exception { 
+		//API end point to make a call
+		String url = &quot;https://apis.bbva.com/identity/v1/me&quot;; 
+		HttpClientBuilder hcBuilder = HttpClients.custom();
+		HttpClient client = hcBuilder.build() ;
+		HttpGet request = new HttpGet(url);
+		//Setting header parameters
+		request.addHeader(&quot;Authorization&quot;, &quot;Authorization: Tsec eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy
+&quot;);
+		//Executing the call
+		HttpResponse response = client.execute(request); 
+		System.out.println(&quot;Sending &#39;GET&#39; to &quot; + url);
+		System.out.println(&quot;HTTP Response: &quot; + response.getStatusLine().getStatusCode()); 
+		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+		//Reading the response
+		StringBuffer result = new StringBuffer();
+		String line = &quot;&quot;;
+		while ((line = rd.readLine()) != null) {
+			result.append(line);
+		} 
+		System.out.println(result.toString()); 
+	}
+}</pre>
+            </div>
+            <div class="example__code-container language-python hidden">
+                <pre class="prettyprint">import urllib
+import httplib
+qparams = {}
+parqparams = urllib.urlencode(qparams)
+conn = httplib.HTTPSConnection(&#39;apis.bbva.com&#39;)
+headers = {}
+headers[&quot;Authorization&quot;] = &quot;Authorization: Tsec eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy
+&quot;
+conn.request(&#39;GET&#39;, &#39;/identity/v1/me?%s&#39;%parqparams, None, headers)
+r = conn.getresponse()
+print r.status, r.read()</pre>
+            </div>
+            <div class="example__code-container language-curl hidden">
+                <pre class="prettyprint"> curl -X GET &quot;https://apis.bbva.com/identity/v1/me&quot; \ 
+  -H &quot;Authorization: Authorization: Tsec eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy
+&quot; \ 
+  -v</pre>
+            </div>
+        </div>
+        <h2 class="example__subtitle--response">RESPONSE</h2>
+        <h3 class="example__subtitle--status-code">HTTP status code</h3>
+        <div class="example__status-codes">
+            <div class="example__status-codes-wrapper">
+                <span class="example__status-code example__status-code">200</span>
+                <span class="example__status-code example__status-code">400</span>
+                <span class="example__status-code example__status-code">401</span>
+                <span class="example__status-code example__status-code">403</span>
+                <span class="example__status-code example__status-code">404</span>
+                <span class="example__status-code example__status-code">405</span>
+                <span class="example__status-code example__status-code">428</span>
+                <span class="example__status-code example__status-code">502</span>
+                <span class="example__status-code example__status-code">503</span>
+            </div>
+             <div class="example__info example__status-code__200 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <h2 id="response-s-body-fields-for-data-node-">Response&#39;s body fields for &quot;data&quot; node.</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>client.id</td>
+<td>External unique identifier for the client and application performing the request</td>
+</tr>
+<tr>
+<td>client.name</td>
+<td>Client&#39;s name</td>
+</tr>
+<tr>
+<td>client.surname</td>
+<td>Client&#39;s surname</td>
+</tr>
+<tr>
+<td>client.secondSurname</td>
+<td>Client&#39;s second surname (this field is optional)</td>
+</tr>
+<tr>
+<td>client.address.additionalData</td>
+<td>Additional data for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.door</td>
+<td>Door for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.floor</td>
+<td>Floor for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.locality</td>
+<td>Locality for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.stairwell</td>
+<td>Stairwell for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.state</td>
+<td>State for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.streetName</td>
+<td>Street name for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.streetNumber</td>
+<td>Street number for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.streetType</td>
+<td>Street type for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.address.zipcode</td>
+<td>Zipcode for client&#39;s address</td>
+</tr>
+<tr>
+<td>client.contactInfo.email</td>
+<td>Client&#39;s email</td>
+</tr>
+<tr>
+<td>client.contactInfo.phone</td>
+<td>Client&#39;s phone</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--200 hidden">{
+    &quot;result&quot;:{
+        &quot;code&quot;:200,
+        &quot;info&quot;:&quot;OK&quot;
+    },
+    &quot;data&quot;: {
+        &quot;client&quot;: {
+            &quot;id&quot;: &quot;11a038feebde3a995d446f7cadb948c90f0f6422ac1bdabb21f5f3b4972e7fad&quot;,
+            &quot;name&quot;: &quot;Bender&quot;,
+            &quot;surname&quot;: &quot;Doblador&quot;,
+            &quot;secondSurname&quot;: &quot;Rodriguez&quot;,
+            &quot;address&quot;: {
+                &quot;additionalData&quot;: &quot;2 I&quot;,
+                &quot;door&quot;: null,
+                &quot;floor&quot;: null,
+                &quot;locality&quot;: &quot;MADRID&quot;,
+                &quot;stairwell&quot;: null,
+                &quot;state&quot;: null,
+                &quot;streetName&quot;: &quot;Serrano&quot;,
+                &quot;streetNumber&quot;: &quot;0012&quot;,
+                &quot;streetType&quot;: &quot;CL&quot;,
+                &quot;zipcode&quot;: &quot;28025&quot;
+            },
+            &quot;contactInfo&quot;: {
+                &quot;email&quot;: &quot;bender@gmail.com&quot;,
+                &quot;phone&quot;: &quot;600606589&quot;
+            }
+        }
+    }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__400 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Bad request. This error code may be produced by several reasons:</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Error message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OAuth handshake</td>
+<td>Invalid scope</td>
+</tr>
+<tr>
+<td>OAuth handshake</td>
+<td>Unsupported grant type</td>
+</tr>
+<tr>
+<td>OAuth handshake</td>
+<td>Missing grant type</td>
+</tr>
+<tr>
+<td>OAuth handshake</td>
+<td>Invalid authorization code</td>
+</tr>
+<tr>
+<td>OAuth handshake</td>
+<td>Missing authorization code</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Missing or invalid parameter</td>
+</tr>
+</tbody>
+</table>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--400 hidden">{
+  &quot;result&quot;:{
+    &quot;code&quot;:400,
+    &quot;info&quot;:&quot;Bad request&quot;,
+    &quot;internal_code&quot;: &quot;invalid_request&quot;
+  }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__401 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Unauthorized request. This error code may be produced by several reasons when consuming a protected resource:</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Error message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OAuth token</td>
+<td>Invalid token</td>
+</tr>
+<tr>
+<td>OAuth token</td>
+<td>Invalid credentials</td>
+</tr>
+<tr>
+<td>OAuth token</td>
+<td>Revoked access token</td>
+</tr>
+<tr>
+<td>OAuth token</td>
+<td>Refresh token is just valid for refresh endpoint</td>
+</tr>
+</tbody>
+</table>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--401 hidden">{ 
+  &quot;result&quot;: {
+    &quot;code&quot;: 401,
+    &quot;info&quot;: &quot;Access token expired: eJxt1/4Nko0SSw==&quot;,
+    &quot;internal_code&quot;: &quot;invalid_token&quot;
+  }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__403 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Resource not accessible using the specified scopes</p>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--403 hidden">{
+  &quot;result&quot;:{
+    &quot;code&quot;:403,
+    &quot;info&quot;:&quot;Forbidden&quot;,
+    &quot;internal_code&quot;: &quot;not_allowed&quot;
+  }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__404 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Resource not found</p>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--404 hidden">{
+    &quot;result&quot;: {
+        &quot;code&quot;: 404,
+        &quot;info&quot;: &quot;Resource not found&quot;,
+        &quot;internal_code&quot;: &quot;not_found&quot;
+    }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__405 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Method not allowed</p>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--405 hidden">{
+    &quot;result&quot;: {
+        &quot;code&quot;: 405,
+        &quot;info&quot;: &quot;Method not allowed&quot;
+    }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__428 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Precondition required. This error code may be produced by several reasons:</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Error message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Second Factor Authentication</td>
+<td>Second authentication factor required</td>
+</tr>
+<tr>
+<td>Second Factor Authentication</td>
+<td>Current OTP is revoked or expired</td>
+</tr>
+</tbody>
+</table>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--428 hidden">{
+    &quot;result&quot;: {
+        &quot;code&quot;: 428,
+        &quot;info&quot;: &quot;Second Factor authentication required&quot;,
+        &quot;internal_code&quot;: &quot;SF0001&quot;
+    },
+    &quot;data&quot;: {
+        &quot;ticket&quot;: &quot;A39cQka0091A57M3&quot;, 
+        &quot;token&quot;: &quot;eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy&quot;, 
+        &quot;otp_url&quot;: &quot;http://openplatform.com/otp&quot;}
+    }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__502 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Bad Gateway. Error sending OTP.</p>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--502 hidden">{
+    &quot;result&quot;: {
+        &quot;code&quot;: 502,
+        &quot;info&quot;: &quot;Error sending OTP&quot;,
+    }
+}
+</span>
+             </div>
+             <div class="example__info example__status-code__503 hidden">
+                 <ul class="example__additional-info">
+                    <span class="example__info__block">
+                     <div class="example__info__text">
+                          <p>Service unavailable</p>
+                     </div>
+                    </span>
+                 </ul>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Example: </label>
+                    </span>
+                 </div>
+                 <div class="example__info__col">
+                    <span class="example__info__block">
+                        <label class="example__info__text">Type: </label>
+                        <label class="example__info__text">application/json</label>
+                    </span>
+                 </div>
+                <span class="example__json example__response--503 hidden">{
+  &quot;result&quot;:{
+    &quot;code&quot;:503,
+    &quot;info&quot;: Service unavailable
+  }
+}
+</span>
+             </div>
+            <div class="example__json-container">
+            </div>
+        </div>
+    </section>
+</article> 
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

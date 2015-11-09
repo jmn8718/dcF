@@ -1,0 +1,630 @@
+#%RAML 0.8
+title: User identity services
+version: v1
+baseUri: "https://{domain}/identity{env}/v1"
+baseUriParameters:
+  domain:
+    type: string
+    description: Public domain for BBVA APIs
+    enum: [ apis.bbva.com ]
+    required: true
+  env:
+    type: string
+    description: Environment
+    enum: [ "", "-sbx" ]
+    required: true
+documentation:
+  - title: Description
+    content: |
+      The identity API allows third party applications to retrieve profile information about a given BBVA user, including the following:
+
+      - Unique identifier for the user
+      - Personal information
+        - Name
+        - Surnames
+      - Contact information
+        - Email
+        - Mobile phone
+        - Address
+
+      This API is available in the following environments:
+      - Sandbox (see section below).
+      - Live (production)
+  - title: Version history
+    content: |
+      Below are the version history for this API:
+
+      |   |   |
+      |---|---|
+      |**Current version**|v1 (November, 2015)|
+      |**Previous available versions**|N/A|
+  - title: Authentication
+    content: |
+      This API is protected by a 3-legged Open Authentication (OAuth) protocol, so as the result of the negotiation a valid OAuth token is obtained for accessing the different services on behalf of a BBVA user.
+
+      Please, check the following Authentication documentation links:
+
+      - [3 legged OAuth authentication protocol documentation](#TODO_link_here)
+  - title: Scopes
+    content: |
+      The responses for this API are accordingly filtered depending on the granted scopes for the calling application. These scopes are specified when the application is registered in BBVA API Market.
+
+      Below are the available scopes for this API and the fields that they allow to retrieve:
+
+
+      | Scope                | Mode  | Filtered fields       |
+      |----------------------|-------|-----------------------|
+      | User profile         | Basic | address, email, phone |
+      |                      | Full  | None                  |
+  - title: Pagination model
+    content: Pagination is not available on this API.
+  - title: Sandbox
+    content: |
+      This API is included in a Sandbox environment to test your applications before accessing to live data.
+
+      A set of non-real users are created by default for each of your applications (see the table below). 
+
+      ## Data set management
+      
+      Data set administration is only available via REST services at the moment, including 3 endpoints:
+
+      - Data set restoration, **deletes** all data for the application and reload the default data set
+      - List application permissions, granted by the users
+      - Application permissions revocation, **revokes all** permissions granted by all users to the application
+
+      ## Related resources  
+
+      - [Sandbox services documentation](#TODO_link_here)
+
+      ## Sandbox available users
+  
+      |User identifier|User password|
+      |------------------------|-------------|            
+      |050461445C|123456|
+      |005745476F|123456|
+      |040628930M|123456|
+      |064789352P|123456|
+      |020120708D|123456|
+      |056909291T|123456|
+      |049315809Z|123456|
+      |009929746W|123456|
+      |072458025K|123456|
+      |008033587D|123456|
+      |012345677J|123456|
+      |050865368V|123456|
+      |1075592584W|123456|
+      |006291718E|123456|
+      |029158696D|123456|
+      |008906932K|123456|
+      |008453435S|123456|
+      |005539848E|123456|
+      |066472433H|123456|
+      |005947759M|123456|
+      |076575274V|123456|
+      |000001025J|123456|
+      |000007839L|123456|
+      |000006939Q|123456|
+      |090247804J|123456|
+      |016038978C|123456|
+      |000001980W|123456|
+      |Y9849764M|123456|
+      |000000002W|123456|
+      |X5665631H|123456|
+      |012345619R|123456|
+      |019609283N|123456|
+      |062956421Q|123456|
+      |032036859K|123456|
+      |078000000P|123456|
+      |046757760W|123456|
+      |000001000B|123456|
+      |000000034B|123456|
+  - title: "Terms & Conditions"
+    content: "- [BBVA API's terms & conditions](#TODO_link_here)"
+  - title: Related resources
+    content: |
+      - [Sandbox live demo application](#TODO_link_here)
+      - [BBVA API Market](#TODO_link_here)
+      - [Github project](#TODO_link_here)  
+schemas:
+  - user_info.json: |
+      {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-04/schema",
+        "id": "http://jsonschema.net",
+        "required" : ["result", "data"],
+        "properties": {
+          "result": {
+            "type": "object",
+            "required" : ["code", "info"],
+            "properties": {
+              "code": {"type": "integer"},
+              "info": {"type": "string"}
+            }
+          },
+          "data": {
+            "type": "object",
+            "required" : ["client"],
+            "properties":{
+              "client" : {
+                "type" : "object",
+                "required" : ["id", "name", "surname"],
+                "properties" : {
+                  "id" : {"type": "string"},
+                  "name":{"type": "string"},
+                  "surname":{"type": "string"},
+                  "secondSurname":{"type": "string"}
+                }
+              }
+            }
+          }
+        }
+      }
+  - user_info_extended.json: |
+      {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-04/schema",
+        "id": "http://jsonschema.net",
+        "required" : ["result", "data"],
+        "properties": {
+          "result": {
+            "type": "object",
+            "required" : ["code", "info"],
+            "properties": {
+              "code": {"type": "integer"},
+              "info": {"type": "string"}
+            }
+          },
+          "data":{
+            "type":"object",
+            "required": ["client"],
+            "properties":{
+              "client" : {
+                "type" : "object",
+                "required" : ["id", "name", "surname", "address", "contactInfo"],
+                "properties" : {
+                  "id" : {"type": "string"},
+                  "name":{"type": "string"},
+                  "surname":{"type": "string"},
+                  "secondSurname":{"type": "string"},
+                  "address" : {
+                    "type" : "object",
+                    "required" : ["additionalData", "locality", "streetName", "streetNumber", "zipcode"],
+                    "properties" : {
+                      "additionalData":{"type": "string"},
+                      "door":{"type": ["string", "null"]},
+                      "floor":{"type": ["string", "null"]},
+                      "locality":{"type": "string"},
+                      "stairwell":{"type": ["string", "null"]},
+                      "state":{"type": ["string", "null"]},
+                      "streetName":{"type": "string"},
+                      "streetNumber":{"type": "string"},
+                      "streetType":{"type": "string"},
+                      "zipcode":{"type": "string"}
+                    }
+                  },
+                  "contactInfo" : {
+                    "type" : "object",
+                    "properties" : {
+                      "email":{"type": "string"},
+                      "phone":{"type": "string"}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+traits:
+  - secured_client_api:
+      headers:
+        Authorization:
+          type: string
+          description: |
+            Tsec Authorization Header. Used to send a valid TSec Access Token.
+
+          example: |
+            Authorization: Tsec eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy
+
+          required: true
+      responses:
+        400:
+          description: |
+            Bad request. This error code may be produced by several reasons:
+
+            |Topic|Error message|
+            |-----|-------------|
+            |OAuth handshake|Invalid scope|
+            |OAuth handshake|Unsupported grant type|
+            |OAuth handshake|Missing grant type|
+            |OAuth handshake|Invalid authorization code|
+            |OAuth handshake|Missing authorization code|            
+
+          body:
+            application/json:
+              example: |
+                {
+                  "result":{
+                    "code":400,
+                    "info":"Bad request",
+                    "internal_code": "invalid_request"
+                  }
+                }
+
+        401:
+          description: |
+            Unauthorized request. This error code may be produced by several reasons when consuming a protected resource:
+
+            |Topic|Error message|
+            |-----|-------------|
+            |OAuth token|Invalid token|
+            |OAuth token|Invalid credentials|
+            |OAuth token|Revoked access token|
+            |OAuth token|Refresh token is just valid for refresh endpoint|
+
+          body:
+            application/json:
+              example: |
+                { 
+                  "result": {
+                    "code": 401,
+                    "info": "Access token expired: eJxt1/4Nko0SSw==",
+                    "internal_code": "invalid_token"
+                  }
+                }
+
+        403:
+          description: |
+            Resource not accessible using the specified scopes
+
+          body:
+            application/json:
+              example: |
+                {
+                  "result":{
+                    "code":403,
+                    "info":"Forbidden",
+                    "internal_code": "not_allowed"
+                  }
+                }
+
+        404:
+          description: |
+            Resource not found
+
+          body:
+            application/json:
+              example: |
+                {
+                    "result": {
+                        "code": 404,
+                        "info": "Resource not found",
+                        "internal_code": "not_found"
+                    }
+                }
+
+        405:
+          description: |
+            Method not allowed
+
+          body:
+            application/json:
+              example: |
+                {
+                    "result": {
+                        "code": 405,
+                        "info": "Method not allowed"
+                    }
+                }
+
+        428:
+          description: |
+            Precondition required. This error code may be produced by several reasons:
+
+            |Topic|Error message|
+            |-----|-------------|
+            |Second Factor Authentication|Second authentication factor required|
+            |Second Factor Authentication|Current OTP is revoked or expired|
+
+          body:
+            application/json:
+              example: |
+                {
+                    "result": {
+                        "code": 428,
+                        "info": "Second Factor authentication required",
+                        "internal_code": "SF0001"
+                    },
+                    "data": {
+                        "ticket": "A39cQka0091A57M3", 
+                        "token": "eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy", 
+                        "otp_url": "http://openplatform.com/otp"}
+                    }
+                }
+
+        502:
+          description: |
+            Bad Gateway. Error sending OTP.
+
+          body:
+            application/json:
+              example: |
+                {
+                    "result": {
+                        "code": 502,
+                        "info": "Error sending OTP",
+                    }
+                }
+/me:
+  get:
+    is: [ secured_client_api ]
+    description: |
+      Returns information associated to the user implicitly binded to attached oauth token.
+
+      **Query string filters**: None
+      **Pagination**: None
+
+    headers:
+      Authorization:
+        type: string
+        description: |
+          Tsec Authorization Header. Used to send a valid TSec Access Token.
+
+        example: |
+          Authorization: Tsec eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy
+
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "object",
+                "$schema": "http://json-schema.org/draft-04/schema",
+                "id": "http://jsonschema.net",
+                "required" : ["result", "data"],
+                "properties": {
+                  "result": {
+                    "type": "object",
+                    "required" : ["code", "info"],
+                    "properties": {
+                      "code": {"type": "integer"},
+                      "info": {"type": "string"}
+                    }
+                  },
+                  "data":{
+                    "type":"object",
+                    "required": ["client"],
+                    "properties":{
+                      "client" : {
+                        "type" : "object",
+                        "required" : ["id", "name", "surname", "address", "contactInfo"],
+                        "properties" : {
+                          "id" : {"type": "string"},
+                          "name":{"type": "string"},
+                          "surname":{"type": "string"},
+                          "secondSurname":{"type": "string"},
+                          "address" : {
+                            "type" : "object",
+                            "required" : ["additionalData", "locality", "streetName", "streetNumber", "zipcode"],
+                            "properties" : {
+                              "additionalData":{"type": "string"},
+                              "door":{"type": ["string", "null"]},
+                              "floor":{"type": ["string", "null"]},
+                              "locality":{"type": "string"},
+                              "stairwell":{"type": ["string", "null"]},
+                              "state":{"type": ["string", "null"]},
+                              "streetName":{"type": "string"},
+                              "streetNumber":{"type": "string"},
+                              "streetType":{"type": "string"},
+                              "zipcode":{"type": "string"}
+                            }
+                          },
+                          "contactInfo" : {
+                            "type" : "object",
+                            "properties" : {
+                              "email":{"type": "string"},
+                              "phone":{"type": "string"}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            example: |
+              {
+                  "result":{
+                      "code":200,
+                      "info":"OK"
+                  },
+                  "data": {
+                      "client": {
+                          "id": "11a038feebde3a995d446f7cadb948c90f0f6422ac1bdabb21f5f3b4972e7fad",
+                          "name": "Bender",
+                          "surname": "Doblador",
+                          "secondSurname": "Rodriguez",
+                          "address": {
+                              "additionalData": "2 I",
+                              "door": null,
+                              "floor": null,
+                              "locality": "MADRID",
+                              "stairwell": null,
+                              "state": null,
+                              "streetName": "Serrano",
+                              "streetNumber": "0012",
+                              "streetType": "CL",
+                              "zipcode": "28025"
+                          },
+                          "contactInfo": {
+                              "email": "bender@gmail.com",
+                              "phone": "600606589"
+                          }
+                      }
+                  }
+              }
+        description: |
+          Response's body fields for "data" node.
+          ---
+
+          |Field|Description|
+          |-----|----------|
+          |client.id|External unique identifier for the client and application performing the request|
+          |client.name|Client's name|
+          |client.surname|Client's surname|                         
+          |client.secondSurname|Client's second surname (this field is optional) |
+          |client.address.additionalData|Additional data for client's address|
+          |client.address.door|Door for client's address|
+          |client.address.floor|Floor for client's address|
+          |client.address.locality|Locality for client's address|
+          |client.address.stairwell|Stairwell for client's address|
+          |client.address.state|State for client's address|
+          |client.address.streetName|Street name for client's address|
+          |client.address.streetNumber|Street number for client's address|
+          |client.address.streetType|Street type for client's address|
+          |client.address.zipcode|Zipcode for client's address|
+          |client.contactInfo.email|Client's email|
+          |client.contactInfo.phone|Client's phone|
+
+          &nbsp;
+      400:
+        description: |
+          Bad request. This error code may be produced by several reasons:
+
+          |Topic|Error message|
+          |-----|-------------|
+          |OAuth handshake|Invalid scope|
+          |OAuth handshake|Unsupported grant type|
+          |OAuth handshake|Missing grant type|
+          |OAuth handshake|Invalid authorization code|
+          |OAuth handshake|Missing authorization code|
+          |API|Missing or invalid parameter|
+
+        body:
+          application/json:
+            example: |
+              {
+                "result":{
+                  "code":400,
+                  "info":"Bad request",
+                  "internal_code": "invalid_request"
+                }
+              }
+
+      401:
+        description: |
+          Unauthorized request. This error code may be produced by several reasons when consuming a protected resource:
+
+          |Topic|Error message|
+          |-----|-------------|
+          |OAuth token|Invalid token|
+          |OAuth token|Invalid credentials|
+          |OAuth token|Revoked access token|
+          |OAuth token|Refresh token is just valid for refresh endpoint|
+
+        body:
+          application/json:
+            example: |
+              { 
+                "result": {
+                  "code": 401,
+                  "info": "Access token expired: eJxt1/4Nko0SSw==",
+                  "internal_code": "invalid_token"
+                }
+              }
+
+      403:
+        description: |
+          Resource not accessible using the specified scopes
+
+        body:
+          application/json:
+            example: |
+              {
+                "result":{
+                  "code":403,
+                  "info":"Forbidden",
+                  "internal_code": "not_allowed"
+                }
+              }
+
+      404:
+        description: |
+          Resource not found
+
+        body:
+          application/json:
+            example: |
+              {
+                  "result": {
+                      "code": 404,
+                      "info": "Resource not found",
+                      "internal_code": "not_found"
+                  }
+              }
+
+      405:
+        description: |
+          Method not allowed
+
+        body:
+          application/json:
+            example: |
+              {
+                  "result": {
+                      "code": 405,
+                      "info": "Method not allowed"
+                  }
+              }
+
+      428:
+        description: |
+          Precondition required. This error code may be produced by several reasons:
+
+          |Topic|Error message|
+          |-----|-------------|
+          |Second Factor Authentication|Second authentication factor required|
+          |Second Factor Authentication|Current OTP is revoked or expired|
+
+        body:
+          application/json:
+            example: |
+              {
+                  "result": {
+                      "code": 428,
+                      "info": "Second Factor authentication required",
+                      "internal_code": "SF0001"
+                  },
+                  "data": {
+                      "ticket": "A39cQka0091A57M3", 
+                      "token": "eJxt1MeOq1gUBdBfKXmKqshJctUTsUwwYBPNpHWBS7AxmBy", 
+                      "otp_url": "http://openplatform.com/otp"}
+                  }
+              }
+
+      502:
+        description: |
+          Bad Gateway. Error sending OTP.
+
+        body:
+          application/json:
+            example: |
+              {
+                  "result": {
+                      "code": 502,
+                      "info": "Error sending OTP",
+                  }
+              }
+      503:
+        description: Service unavailable
+        body:
+          application/json:
+            example: |
+              {
+                "result":{
+                  "code":503,
+                  "info": Service unavailable
+                }
+              }
