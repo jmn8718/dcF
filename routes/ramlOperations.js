@@ -219,7 +219,6 @@ function sendError(res, errorCode, errorMessage){
   }
   res.send(data);
 }
-
 /* GET ramlOperations listing. */
 router.get('/api_market', function(request, response, next) {
   console.log('here',request.url)
